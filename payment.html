@@ -336,14 +336,19 @@
         </div>
 
         <!-- Dynamic Fee Display Box -->
-        <div class="amount-display">
-            <div class="amount-label">Required Deposit Amount</div>
-            <div class="amount-val" id="amountText">₦17,500.00</div>
-            <button class="btn-copy-small mt-1" id="copyAmountBtn">
-                <i class="far fa-copy"></i> Copy Amount
-            </button>
-        </div>
+<div class="amount-display">
+    <div class="amount-label">Total Required Amount</div>
+    <div class="amount-val" id="amountText">₦17,550.00</div>
+    
+    <!-- Service charge breakdown note -->
+    <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 10px;">
+        (Base fee + ₦50 network processing charge)
+    </div>
 
+    <button class="btn-copy-small" id="copyAmountBtn">
+        <i class="far fa-copy"></i> Copy Exact Amount
+    </button>
+</div>
         <!-- System Account Matrix -->
         <div class="bank-details-box">
             <!-- Account 1: Kuda -->
