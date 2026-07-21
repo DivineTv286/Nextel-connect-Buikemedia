@@ -53,7 +53,7 @@
         }
         .brand-text span { color: var(--green-light); }
 
-        /* Animated Support Link replacing the old bars icon */
+        /* Animated Support Link */
         .support-link {
             color: var(--green-light);
             font-size: 1.35rem;
@@ -275,7 +275,7 @@
         .stat-label { color: var(--text-muted); }
         .stat-value { font-weight: 600; }
 
-        /* --- 3D Flippable Virtual eSIM Card System --- */
+        /* Virtual eSIM Card */
         .esim-flip-container {
             perspective: 1000px;
             margin-top: 16px;
@@ -307,7 +307,6 @@
             justify-content: space-between;
         }
 
-        /* Front Side Styling (From IMG_20260701_112046_363.jpg) */
         .esim-front {
             background: linear-gradient(135deg, #0b2f19, #05180d);
         }
@@ -401,7 +400,6 @@
         .esim-value.gold { color: #a3e635; }
         .esim-value.success { color: #4ade80; }
 
-        /* Back Side Styling (From Screenshot_20260701-120257_Telegram.jpg) */
         .esim-back {
             background: linear-gradient(135deg, #051c0f, #020d07);
             transform: rotateY(180deg);
@@ -563,6 +561,60 @@
             border-radius: 10px !important;
             padding: 10px 20px !important;
         }
+
+        /* --- On Load Welcome Popup Styling --- */
+        .modal-content.nextel-modal-theme {
+            background: #082113;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 24px;
+            color: #fff;
+        }
+        .nextel-modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 20px;
+        }
+        .btn-close-custom {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        .btn-close-custom:hover {
+            color: #fff;
+        }
+        .popup-img-container {
+            width: 100%;
+            max-height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .popup-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .btn-telegram-join {
+            background: linear-gradient(135deg, #229ED9, #0088cc);
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+        }
+        .btn-telegram-join:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -659,11 +711,10 @@
         </div>
     </section>
 
-    <!-- Premium 3D Flippable Virtual eSIM System Section -->
+    <!-- Premium 3D Virtual eSIM System Section -->
     <section class="esim-flip-container" id="esimCardContainer">
         <div class="esim-card-inner">
-            
-            <!-- FRONT SIDE: Matches layout parameters from IMG_20260701_112046_363.jpg -->
+            <!-- FRONT SIDE -->
             <div class="esim-front">
                 <div class="esim-header">
                     <div class="esim-brand"><span>N</span> NEXTEL</div>
@@ -699,11 +750,10 @@
                 </div>
             </div>
 
-            <!-- BACK SIDE: Matches asset structure from Screenshot_20260701-120257_Telegram.jpg -->
+            <!-- BACK SIDE -->
             <div class="esim-back">
                 <div class="esim-back-body">
                     <div class="qr-wrapper">
-                        <!-- Custom rendered QR layout placeholder asset -->
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=NXT-MRCY01&color=071a0f" alt="Line QR Access Code">
                     </div>
                     <div class="code-details-box">
@@ -716,9 +766,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- Tap target toggle action trigger footer element -->
         <div class="flip-footer-trigger" onclick="flipEsimCard()">Tap to Flip Layout</div>
     </section>
 
@@ -772,10 +820,49 @@
     </section>
 </main>
 
+<!-- On-Load Welcome Popup Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content nextel-modal-theme">
+            <div class="nextel-modal-header d-flex justify-content-between align-items-center">
+                <h5 class="modal-title fw-bold" id="welcomeModalLabel" style="color: var(--gold);">
+                    <i class="fas fa-bullhorn me-2"></i>Welcome to Nextel
+                </h5>
+                <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body p-4 text-center">
+                <!-- Custom Image Container (Replace the src attribute below with your own image link) -->
+                <div class="popup-img-container">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Welcome to Nextel">
+                </div>
+                
+                <p style="font-size: 0.92rem; color: rgba(255,255,255,0.85); line-height: 1.6;">
+                    Join our official Telegram channel and stay updated on all platform announcements, new network lines, daily bonuses, and instant payout notifications!
+                </p>
+                
+                <div class="mt-4">
+                    <a href="https://t.me/nextel_hq" target="_blank" class="btn-telegram-join">
+                        <i class="fab fa-telegram"></i> Join Telegram Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    // Trigger Welcome Modal Automatically on Page Load
+    document.addEventListener("DOMContentLoaded", function () {
+        const welcomeModalElement = document.getElementById('welcomeModal');
+        const welcomeModal = new bootstrap.Modal(welcomeModalElement);
+        welcomeModal.show();
+    });
+
     const countryLines = {
         usa: [
             "+1 (323) 801-6643", "+1 (404) 919-5520", "+1 (702) 664-1189",
@@ -797,7 +884,6 @@
             localUserData = JSON.parse(rawData);
             if (localUserData.username) {
                 document.getElementById("usernameDisplay").textContent = localUserData.username;
-                // Generate a custom clean text code based on current user session layout info
                 document.getElementById("referralCodeText").textContent = `NXT-${localUserData.username.toUpperCase()}01`;
             }
             if (localUserData.planName) {
@@ -809,9 +895,8 @@
         console.error("Session reading failure token keys", e);
     }
 
-    // Toggle showing/masking the virtual line phone number
     function toggleNumberMask(event) {
-        event.stopPropagation(); // Avoid triggering accidental card flip
+        event.stopPropagation();
         const display = document.getElementById("maskedLineNumber");
         const icon = document.getElementById("maskToggleIcon");
         const text = document.getElementById("maskToggleText");
@@ -829,14 +914,12 @@
         }
     }
 
-    // Triggers 3D flipping action layout routine
     function flipEsimCard() {
         document.getElementById("esimCardContainer").classList.toggle("flipped");
     }
 
-    // Copy backend verification text code function workflow
     function copyReferralCode(event) {
-        event.stopPropagation(); // Stop card from flipping when clicking copy button
+        event.stopPropagation();
         const targetText = document.getElementById("referralCodeText").textContent;
         
         navigator.clipboard.writeText(targetText).then(() => {
@@ -913,4 +996,4 @@
     switchLines('usa');
 </script>
 </body>
-  </html>
+</html>
